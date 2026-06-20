@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+    <h1>Student Mark Sheet</h1>
+    <a href="/" class="add-btn">+ Add New Student</a>
+    <br><br>
+
+    <!-- Search Bar -->
+    <form method="GET" action="/results/">
+        <div class="search-bar">
+            <input type="text" name="search" placeholder="Search student name..." value="{{ query }}">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <!-- No results message -->
+    {% if not students %}
+        <p style="text-align:center; color:red; margin-top:20px;">No student found!</p>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Tamil</th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Social</th>
+            <th>Total</th>
+            <th>Grade</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.tamil }}</td>
+            <td>{{ student.english }}</td>
+            <td>{{ student.maths }}</td>
+            <td>{{ student.science }}</td>
+            <td>{{ student.social }}</td>
+            <td>{{ student.total }}</td>
+            <td>{{ student.grade }}</td>
+            <td>{{ student.status }}</td>
+            <td><a href="/edit/{{ student.id }}/" class="btn-edit">Edit</a></td>
+            <td><a href="/delete/{{ student.id }}/" class="btn-delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

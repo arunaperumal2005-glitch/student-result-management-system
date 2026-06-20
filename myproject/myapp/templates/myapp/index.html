@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Mark Sheet</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+    <h1>Enter Student Marks</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Tamil:</label>
+        <input type="number" name="tamil" min="0" max="100" required>
+
+        <label>English:</label>
+        <input type="number" name="english" min="0" max="100" required>
+
+        <label>Maths:</label>
+        <input type="number" name="maths" min="0" max="100" required>
+
+        <label>Science:</label>
+        <input type="number" name="science" min="0" max="100" required>
+
+        <label>Social:</label>
+        <input type="number" name="social" min="0" max="100" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

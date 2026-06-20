@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+    <h1>Edit Student Marks</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ student.name }}" required>
+
+        <label>Tamil:</label>
+        <input type="number" name="tamil" value="{{ student.tamil }}" min="0" max="100" required>
+
+        <label>English:</label>
+        <input type="number" name="english" value="{{ student.english }}" min="0" max="100" required>
+
+        <label>Maths:</label>
+        <input type="number" name="maths" value="{{ student.maths }}" min="0" max="100" required>
+
+        <label>Science:</label>
+        <input type="number" name="science" value="{{ student.science }}" min="0" max="100" required>
+
+        <label>Social:</label>
+        <input type="number" name="social" value="{{ student.social }}" min="0" max="100" required>
+
+        <button type="submit">Update</button>
+    </form>
+    <br>
+    <a href="/results/" class="add-btn">Back to Results</a>
+</body>
+</html>
