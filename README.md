@@ -45,7 +45,7 @@ Otherwise, the student is marked as Fail.
 ## Screenshots
 
 ### student_marks
-![Student Marks Page](atudent_marks.png)
+![Student Marks Page](student_marks.png)
 
 ### student_mark_list
 ![Student Mark List Page](student_mark_list.png)
